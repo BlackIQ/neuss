@@ -13,7 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _guess = TextEditingController();
   var nSelected = Random().nextInt(10);
 
-  int points = 1;
+  int points = 10;
 
   void chance() {
     int got = int.parse(_guess.text);
@@ -42,7 +42,11 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           actions: [
             TextButton(
-              onPressed: () => Navigator.of(context).pop(),
+              onPressed: () {
+                _guess.clear();
+                nSelected = Random().nextInt(10);
+                Navigator.of(context).pop();
+              },
               child: const Text(
                 'Next one!',
               ),
@@ -53,7 +57,6 @@ class _HomeScreenState extends State<HomeScreen> {
       setState(() {
         points++;
       });
-      _guess.clear();
     } else {
       showDialog(
         context: context,
@@ -78,7 +81,11 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           actions: [
             TextButton(
-              onPressed: () => Navigator.of(context).pop(),
+              onPressed: () {
+                _guess.clear();
+                nSelected = Random().nextInt(10);
+                Navigator.of(context).pop();
+              },
               child: const Text(
                 'Try again',
               ),
@@ -89,10 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
       setState(() {
         points--;
       });
-      _guess.clear();
     }
-
-    nSelected = Random().nextInt(10);
   }
 
   @override
