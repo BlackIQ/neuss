@@ -2,15 +2,20 @@
 
 Guess n number.
 
-## Getting Started
+### About Nuess
 
-This project is a starting point for a Flutter application.
+**Nuess** is a guessing game where you can guess a number between 0 and 10.
 
-A few resources to get you started if this is your first Flutter project:
+### How to play
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+As we said before, **Nuess** is a guessing game where you can guess a number between 0 and 10. If you enter the right number that app has selected before, you will earn a point.
+If you enter the wrong number, you will lose a point.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+If you points get equal to 0, you need to start over. There are 2 ways where you can start over the applicatio.
+
+- Exit and open the app.
+- User start over button in drawer or ending modal.
+
+### Development
+
+This game is developed with **Flutter** framework where you can run this app it your **iOS simulator** or **Android emulator**.
