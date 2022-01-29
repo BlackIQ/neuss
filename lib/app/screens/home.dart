@@ -179,6 +179,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
+            TextButton(
+              onPressed: () {
+                setState(() {
+                  points = 10;
+                  Navigator.of(context).pop();
+                });
+              },
+              child: const Text(
+                'Start over',
+                style: TextStyle(
+                  color: Colors.orange,
+                ),
+              ),
+            ),
           ],
         ),
       );
