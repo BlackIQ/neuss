@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -202,7 +203,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: Colors.green,
                 ),
               ),
-              onTap: () {},
+              onTap: () {
+                setState(() {
+                  points = 10;
+                });
+              },
             ),
             ListTile(
               title: const Text(
@@ -220,7 +225,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: Colors.green,
                 ),
               ),
-              onTap: () {},
+              onTap: () async {
+                await launch('https://github.com/BlackIQ/neuss');
+              },
             ),
           ],
         ),
