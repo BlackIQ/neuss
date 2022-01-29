@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -49,6 +50,9 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               child: const Text(
                 'Next one!',
+                style: TextStyle(
+                  color: Colors.green,
+                ),
               ),
             ),
           ],
@@ -88,6 +92,9 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               child: const Text(
                 'Try again',
+                style: TextStyle(
+                  color: Colors.red,
+                ),
               ),
             ),
           ],
@@ -96,6 +103,44 @@ class _HomeScreenState extends State<HomeScreen> {
       setState(() {
         points--;
       });
+    }
+    if (points == 0) {
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => AlertDialog(
+          elevation: 0,
+          title: const Text(
+            'Ok, no!',
+            style: TextStyle(
+              color: Colors.orange,
+            ),
+          ),
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: const <Widget>[
+                Text('Your points are equal to 0.'),
+                Text('In this case you have to close and open the app.'),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                exit(0);
+              },
+              child: const Text(
+                'Exit the app',
+                style: TextStyle(
+                  color: Colors.orange,
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
     }
   }
 
