@@ -165,8 +165,65 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 0,
         centerTitle: true,
       ),
-      drawer: const Drawer(
+      drawer: Drawer(
         elevation: 0,
+        child: ListView(
+          children: <Widget>[
+            DrawerHeader(
+              padding: const EdgeInsets.all(20),
+              decoration: const BoxDecoration(
+                color: Colors.green,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: const <Widget>[
+                  Text(
+                    'Nuess',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 40,
+                    ),
+                  ),
+                  Text(
+                    'Guess a number between selected minimum and maximum.',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              title: const Text(
+                'Start over',
+                style: TextStyle(
+                  color: Colors.green,
+                ),
+              ),
+              onTap: () {},
+            ),
+            ListTile(
+              title: const Text(
+                'How to play',
+                style: TextStyle(
+                  color: Colors.green,
+                ),
+              ),
+              onTap: () {},
+            ),
+            ListTile(
+              title: const Text(
+                'About app',
+                style: TextStyle(
+                  color: Colors.green,
+                ),
+              ),
+              onTap: () {},
+            ),
+          ],
+        ),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
