@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nuess/app/services/home.dart';
+import 'package:nuess/app/screens/home.dart';
 
 void main() => runApp(const MyApp());
 
