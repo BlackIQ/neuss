@@ -190,8 +190,8 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: const <Widget>[
-                Text('Min = 1', style: TextStyle(color: Colors.lightBlue)),
-                Text('Max = 250', style: TextStyle(color: Colors.lightBlue)),
+                Text('Min = 0', style: TextStyle(color: Colors.lightBlue)),
+                Text('Max = 10', style: TextStyle(color: Colors.lightBlue)),
               ],
             ),
             const SizedBox(height: 10),
