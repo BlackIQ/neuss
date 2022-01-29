@@ -20,91 +20,131 @@ class _HomeScreenState extends State<HomeScreen> {
   void chance() {
     int got = int.parse(_guess.text);
 
-    if (got == nSelected) {
-      showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (context) => AlertDialog(
-          elevation: 0,
-          title: const Text(
-            'Good job',
-            style: TextStyle(
-              color: Colors.green,
-            ),
-          ),
-          content: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                Text('Selected number was $nSelected.'),
-                const Text('And you entered what exactly it was.'),
-              ],
-            ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                _guess.clear();
-                nSelected = Random().nextInt(10);
-                Navigator.of(context).pop();
-              },
-              child: const Text(
-                'Next one!',
-                style: TextStyle(
-                  color: Colors.green,
-                ),
+    if (got >= 0 && got <= 10) {
+      if (got == nSelected) {
+        showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (context) => AlertDialog(
+            elevation: 0,
+            title: const Text(
+              'Good job',
+              style: TextStyle(
+                color: Colors.green,
               ),
             ),
-          ],
-        ),
-      );
-      setState(() {
-        points++;
-      });
-    } else {
-      showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (context) => AlertDialog(
-          elevation: 0,
-          title: const Text(
-            'Ok, no!',
-            style: TextStyle(
-              color: Colors.red,
-            ),
-          ),
-          content: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                Text('Selected number was $nSelected.'),
-                Text('But you entered $got.'),
-              ],
-            ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                _guess.clear();
-                nSelected = Random().nextInt(10);
-                Navigator.of(context).pop();
-              },
-              child: const Text(
-                'Try again',
-                style: TextStyle(
-                  color: Colors.red,
-                ),
+            content: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Text('Selected number was $nSelected.'),
+                  const Text('And you entered what exactly it was.'),
+                ],
               ),
             ),
-          ],
-        ),
-      );
-      setState(() {
-        points--;
-      });
+            actions: [
+              TextButton(
+                onPressed: () {
+                  _guess.clear();
+                  nSelected = Random().nextInt(10);
+                  Navigator.of(context).pop();
+                },
+                child: const Text(
+                  'Next one!',
+                  style: TextStyle(
+                    color: Colors.green,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+        setState(() {
+          points++;
+        });
+      } else {
+        showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (context) => AlertDialog(
+            elevation: 0,
+            title: const Text(
+              'Ok, no!',
+              style: TextStyle(
+                color: Colors.red,
+              ),
+            ),
+            content: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Text('Selected number was $nSelected.'),
+                  Text('But you entered $got.'),
+                ],
+              ),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  _guess.clear();
+                  nSelected = Random().nextInt(10);
+                  Navigator.of(context).pop();
+                },
+                child: const Text(
+                  'Try again',
+                  style: TextStyle(
+                    color: Colors.red,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+        setState(() {
+          points--;
+        });
+      }
     }
+    else {
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => AlertDialog(
+          elevation: 0,
+          title: const Text(
+            'Less and more',
+            style: TextStyle(
+              color: Colors.blue,
+            ),
+          ),
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: const <Widget>[
+                Text('Number should be less than 11 and more that 0.'),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text(
+                'Got it',
+                style: TextStyle(
+                  color: Colors.blue,
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
     if (points == 0) {
       showDialog(
         context: context,
