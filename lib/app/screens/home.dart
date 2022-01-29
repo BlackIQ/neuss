@@ -270,7 +270,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: Colors.green,
                 ),
               ),
-              onTap: () {},
+              onTap: () async {
+                await launch('https://github.com/BlackIQ/neuss#how-to-play');
+              },
             ),
             ListTile(
               title: const Text(
